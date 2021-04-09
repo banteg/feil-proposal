@@ -51,3 +51,11 @@ def test_redeem(core, fei, timelock, vault, feil_proposal, whale, full):
     assert supply_after < supply_before
     assert fei_after < fei_before
     assert vault_after > vault_before
+
+
+def test_no_curve_minting(core, fei, timelock, feil_proposal, Contract, accounts):
+    user = accounts[0]
+    migrate(core, fei, timelock, feil_proposal)
+    curve = Contract("0xe1578B4a32Eaefcd563a9E6d0dc02a4213f673B7")
+    with brownie.reverts("CoreRef: Caller is not a minter"):
+        curve.purchase(user, "100 ether", {"amount": "100 ether", "from": user})

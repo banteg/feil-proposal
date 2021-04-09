@@ -32,4 +32,4 @@ The proposal needs the following permissions:
 
 ## Tests
 
-Run `brownie test -v` to simulate the migration and see the current outstanding debt and redemption rate.
+Run `brownie test -s` to simulate the migration and see the current outstanding debt and redemption rate.

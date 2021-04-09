@@ -96,7 +96,6 @@ def let_me_out(amount: uint256 = MAX_UINT256):
 def let_me_out_i_have_permit(
     owner: address, spender: address, amount: uint256, deadline: uint256, v: uint256, r: bytes32, s: bytes32
 ):
-    assert self.rugged, "not rugged yet"
     # NOTE: Vyper doesn't support uint8 type, so we encode by hand
     raw_call(fei, concat(
         method_id("permit(address,address,uint256,uint256,uint8,bytes32,bytes32)"),

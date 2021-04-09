@@ -2,6 +2,14 @@ from brownie import Contract
 from brownie.utils.output import build_tree
 
 
+def get_name(addr):
+    try:
+        name = Contract(addr)._name
+        return f"{addr} {name}"
+    except ValueError:
+        return str(addr)
+
+
 def main():
     core = Contract("0x8d5ED43dCa8C2F7dFB20CF7b53CC7E593635d7b9")
     roles = {
@@ -22,7 +30,7 @@ def main():
                     ["admin", names[str(core.getRoleAdmin(role))]],
                     [
                         "members",
-                        *[str(core.getRoleMember(role, i)) for i in range(size)],
+                        *[get_name(core.getRoleMember(role, i)) for i in range(size)],
                     ],
                 ]
             )

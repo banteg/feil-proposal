@@ -29,3 +29,7 @@ The proposal needs the following permissions:
 
 1. Generate a Fei Permit with FeilProposal as spender and with the amount you want to redeem.
 2. `proposal.let_me_out_i_have_permit(owner, spender, amount, deadline, v, r, s)`
+
+## Tests
+
+Run `brownie test -v` to simulate the migration and see the current outstanding debt and redemption rate.

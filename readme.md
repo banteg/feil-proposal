@@ -29,6 +29,3 @@ The proposal needs the following permissions:
 
 1. Generate a Fei Permit with FeilProposal as spender and with the amount you want to redeem.
 2. `feil_proposal.let_me_out_i_have_permit(owner, spender, amount, deadline, v, r, s)`
-
-## Rug tip
-Although `BURNER` role allows the proposal to burn anyone's FEI, it doesn't allow that and honors allowances.

@@ -82,7 +82,6 @@ def _redeem(owner: address, amount: uint256):
     debt: uint256 = self._remaining_fei()
     burn: uint256 = min(amount, ERC20(fei).balanceOf(owner))
     refund: uint256 = assets * burn / debt
-    assert ERC20(fei).allowance(owner, self) >= burn  # otherwise the burner role could burn anyone
     Fei(fei).burnFrom(owner, burn)
     assert ERC20(vault).transfer(owner, refund)
 
